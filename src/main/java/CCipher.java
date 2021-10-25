@@ -5,7 +5,7 @@ public class CCipher {
     public static String encrypt(String getPlainText, int shiftKey) {
 
         plainText = getPlainText;
-        String cipherText = "";
+        StringBuilder cipherText = new StringBuilder();
 
         if (shiftKey > 26) {
             shiftKey = (shiftKey % 26);
@@ -17,29 +17,28 @@ public class CCipher {
                 if (Character.isLowerCase(plainText.charAt(i))) {
                     char ciphered_letter = (char) (plainText.charAt(i) + shiftKey);
                     if (ciphered_letter > 'z') {
-                        cipherText += (char) (plainText.charAt(i) - (26 - shiftKey));
+                        cipherText.append((char) (plainText.charAt(i) - (26 - shiftKey)));
                     } else {
-                        cipherText += ciphered_letter;
+                        cipherText.append(ciphered_letter);
                     }
                 } else if (Character.isUpperCase(plainText.charAt(i))) {
                     char ciphered_letter = (char) (plainText.charAt(i) + shiftKey);
                     if (ciphered_letter > 'Z') {
-                        cipherText += (char) (plainText.charAt(i) - (26 - shiftKey));
-                        ;
+                        cipherText.append((char) (plainText.charAt(i) - (26 - shiftKey)));
                     } else {
-                        cipherText += ciphered_letter;
+                        cipherText.append(ciphered_letter);
                     }
                 }
             } else {
-                cipherText += plainText.charAt(i);
+                cipherText.append(plainText.charAt(i));
             }
         }
-        return cipherText;
+        return cipherText.toString();
     }
 
     public static String decrypt(String getPlainText, int shiftKey) {
         plainText = getPlainText;
-        String cipherText = "";
+        StringBuilder cipherText = new StringBuilder();
 
         if (shiftKey > 26) {
             shiftKey = (shiftKey % 26);
@@ -51,24 +50,23 @@ public class CCipher {
                 if (Character.isLowerCase(plainText.charAt(i))) {
                     char ciphered_letter = (char) (plainText.charAt(i) - shiftKey);
                     if (ciphered_letter < 'a') {
-                        cipherText += (char) (plainText.charAt(i) + (26 - shiftKey));
+                        cipherText.append((char) (plainText.charAt(i) + (26 - shiftKey)));
 
                     } else {
-                        cipherText += ciphered_letter;
+                        cipherText.append(ciphered_letter);
                     }
                 } else if (Character.isUpperCase(plainText.charAt(i))) {
                     char ciphered_letter = (char) (plainText.charAt(i) - shiftKey);
                     if (ciphered_letter < 'A') {
-                        cipherText += (char) (plainText.charAt(i) + (26 - shiftKey));
-                        ;
+                        cipherText.append((char) (plainText.charAt(i) + (26 - shiftKey)));
                     } else {
-                        cipherText += ciphered_letter;
+                        cipherText.append(ciphered_letter);
                     }
                 }
             } else {
-                cipherText += plainText.charAt(i);
+                cipherText.append(plainText.charAt(i));
             }
         }
-        return cipherText;
+        return cipherText.toString();
     }
 }
