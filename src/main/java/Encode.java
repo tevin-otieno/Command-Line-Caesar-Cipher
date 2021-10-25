@@ -1,8 +1,13 @@
 public class Encode {
-    private int shiftKey;
-    private String message;
+    private final int shiftKey;
+    private final String message;
 
-    public StringBuilder Encoding(){
+    public Encode(int shiftKey1, String message1) {
+        this.shiftKey = shiftKey1;
+        this.message = message1;
+    }
+
+    public StringBuilder encoding(){
         int shiftKey = this.shiftKey;
         String message = this.message.toLowerCase();
 
