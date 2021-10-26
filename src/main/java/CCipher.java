@@ -51,7 +51,6 @@ public class CCipher {
                     char ciphered_letter = (char) (plainText.charAt(i) - shiftKey);
                     if (ciphered_letter < 'a') {
                         cipherText.append((char) (plainText.charAt(i) + (26 - shiftKey)));
-
                     } else {
                         cipherText.append(ciphered_letter);
                     }
