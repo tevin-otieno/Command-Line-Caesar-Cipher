@@ -1,19 +1,27 @@
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.*;
 
-@DisplayName ("ceaser cipher tests")
+@DisplayName("ceaser cipher tests")
 class CCipherTest {
+    @Test
+    @DisplayName ("test for input")
+    public void Cipher_testingInput(){
+        CCipher cipher = new CCipher();
+        assertNotNull(cipher);
+    }
+
     @Test
     @DisplayName ("test for encryption")
     public void Cipher_testingEncryptingmethod() {
-        CCipher cipher =new CCipher();
-        assertEquals("mvvk",cipher.encrypt("food",7));
+        assertEquals("mvvk", CCipher.encrypt("food",7));
     }
 
     @Test
     @DisplayName ("test for decryption")
     public void Cipher_testingDecryptingMethod() {
-        CCipher cipher =new CCipher();
-        assertEquals("food",cipher.decrypt("mvvk",&));
+        assertEquals("food", CCipher.decrypt("mvvk",7));
     }
 
 }
