@@ -26,7 +26,7 @@ public class CipherInterface {
             message = s.next();
             System.out.println("Enter Key");
             System.out.println("Decrypted massage... ");
-            System.out.println(CCipher.decrypt(message, 3));
+            System.out.println(CCipher.decrypt(message, shiftKey));
         }else{
             System.out.println("Please enter valid option.");
         }
